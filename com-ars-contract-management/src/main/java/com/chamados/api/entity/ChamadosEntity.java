@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -27,10 +28,10 @@ public class ChamadosEntity {
     public String descricao;
     @Column(name = "DATA_CRIAÇÃO")
 
-    public Date dataCriacao;
+    public LocalDateTime dataCriacao;
     @Column(name = "DATA_ATUALIZAÇÃO")
 
-    public Date  dataAtualizacao;
+    public LocalDateTime  dataAtualizacao;
     @Column(name = "ID_USUÁRIO")
 
     public int usuario;
@@ -46,7 +47,11 @@ public class ChamadosEntity {
         chamadosEntity.dataCriacao = this.dataCriacao;
         chamadosEntity.usuario = this.usuario;
         chamadosEntity.categoriaChamado = this.categoriaChamado;
+    }
 
-
+    @PrePersist
+    public void prePersist(){
+        setDataCriacao(LocalDateTime.now());
+        setDataAtualizacao(LocalDateTime.now());
     }
 }
