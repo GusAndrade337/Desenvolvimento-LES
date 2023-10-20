@@ -1,0 +1,125 @@
+
+create table "chamado" (
+"id_chamado" BIGSERIAL  not null,
+"titulo" char(50),
+"descrição" char(200),
+"data_criação" timestamp,
+"data_atualização" timestamp,
+"id_usuário" BIGSERIAL  not null,
+"id_categoria_de_chamado" BIGSERIAL  not null
+);
+
+create table "cesto_de_trabalho" (
+"id_cesto_de_trabalho" BIGSERIAL  not null,
+"nome" char(50),
+"descrição" char(200)
+);
+
+create table "usuário" (
+"id_usuário" BIGSERIAL  not null,
+"nome" char(50),
+"email" char(50),
+"id_cargo" BIGSERIAL  not null
+);
+
+create table "categoria_de_chamado" (
+"id_categoria_de_chamado" BIGSERIAL  not null,
+"nome" char(50),
+"descrição" char(200),
+"validade" char(20),
+"id_cesto_de_trabalho" BIGSERIAL  not null
+);
+
+create table "fluxo_de_trabalho" (
+"id_fluxo_de_trabalho" BIGSERIAL  not null,
+"id_estado_origem" BIGSERIAL  not null,
+"id_estado_destino" BIGSERIAL  not null,
+"id_categoria_de_chamado" BIGSERIAL  not null
+);
+
+create table "cargos" (
+"id_cargo" BIGSERIAL  not null,
+"nome" char(50),
+"permissão_adminstrativa" char(8)
+);
+
+create table "credenciais" (
+"usuário" char(50),
+"senha" char(20),
+"id_usuário" BIGSERIAL  not null
+);
+
+create table "estados_de_trabalho" (
+"id_estado" BIGSERIAL  not null,
+"nome" char(50),
+"descrição" char(200)
+);
+
+alter table "chamado" add constraint "chamado_pk" primary key ("id_chamado");
+
+alter table "cesto_de_trabalho" add constraint "cesto_de_trabalho_pk" primary key ("id_cesto_de_trabalho");
+
+alter table "usuário" add constraint "usuário_pk" primary key ("id_usuário");
+
+alter table "categoria_de_chamado" add constraint "categoria_de_chamado_pk" primary key ("id_categoria_de_chamado");
+
+alter table "fluxo_de_trabalho" add constraint "fluxo_de_trabalho_pk" primary key ("id_fluxo_de_trabalho");
+
+alter table "cargos" add constraint "cargos_pk" primary key ("id_cargo");
+
+alter table "credenciais" add constraint "credenciais_pk" primary key ("id_usuário");
+
+alter table "estados_de_trabalho" add constraint "estados_de_trabalho_pk" primary key ("id_estado");
+
+alter table "chamado" add constraint "chamado_usuário_fk" foreign key
+("id_usuário")
+references "usuário"
+("id_usuário")
+not deferrable initially immediate;
+
+alter table "chamado" add constraint "chamado_categoria_de_chamado_fk" foreign key
+("id_categoria_de_chamado")
+references "categoria_de_chamado"
+("id_categoria_de_chamado")
+not deferrable initially immediate;
+
+alter table "usuário" add constraint "usuário_cargos_fk" foreign key
+("id_cargo")
+references "cargos"
+("id_cargo")
+not deferrable initially immediate;
+
+alter table "categoria_de_chamado" add constraint "categoria_de_chamado_cesto_de_trabalho_fk" foreign key
+("id_cesto_de_trabalho")
+references "cesto_de_trabalho"
+("id_cesto_de_trabalho")
+not deferrable initially immediate;
+
+alter table "fluxo_de_trabalho" add constraint "fluxo_de_trabalho_estados_de_trabalho_fk" foreign key
+("id_estado_origem")
+references "estados_de_trabalho"
+("id_estado")
+not deferrable initially immediate;
+
+alter table "fluxo_de_trabalho" add constraint "fluxo_de_trabalho_estados_de_trabalho_fk1" foreign key
+("id_estado_destino")
+references "estados_de_trabalho"
+("id_estado")
+not deferrable initially immediate;
+
+alter table "fluxo_de_trabalho" add constraint "fluxo_de_trabalho_categoria_de_chamado_fk" foreign key
+("id_categoria_de_chamado")
+references "categoria_de_chamado"
+("id_categoria_de_chamado")
+not deferrable initially immediate;
+
+alter table "credenciais" add constraint "credenciais_usuário_fk" foreign key
+("id_usuário")
+references "usuário"
+("id_usuário")
+not deferrable initially immediate;
+
+
+
+
+
