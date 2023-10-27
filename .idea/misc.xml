@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/com-ars-flow-management/pom.xml" />
+        <option value="$PROJECT_DIR$/com-ars-role-management/pom.xml" />
+        <option value="$PROJECT_DIR$/com-ars-user-management/pom.xml" />
+        <option value="$PROJECT_DIR$/com-ars-contract-management/pom.xml" />
+        <option value="$PROJECT_DIR$/com-ars-workbasket-management/pom.xml" />
+        <option value="$PROJECT_DIR$/com-ars-contract-category-management/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="18" project-jdk-type="JavaSDK" />
+</project>
