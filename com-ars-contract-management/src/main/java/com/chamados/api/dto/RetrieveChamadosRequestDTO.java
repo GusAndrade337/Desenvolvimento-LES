@@ -16,6 +16,6 @@ public class RetrieveChamadosRequestDTO {
 
     public String titulo;
     public String descricao;
-    public int usuario;
-    public int categoriaChamado;
+    public String usuario;
+    public String categoriaChamado;
 }

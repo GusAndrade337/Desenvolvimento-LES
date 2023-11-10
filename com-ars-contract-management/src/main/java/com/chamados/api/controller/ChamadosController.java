@@ -40,6 +40,12 @@ public class ChamadosController {
         return mapper.toResponseGetPageable(lista);
     }
 
+    @GetMapping("/{id}")
+    public RetrieveChamadosRequestDTO listarUm(@PathVariable int id) {
+        ChamadosEntity lista = repository.findById(id).orElseThrow();
+        return mapper.toResponseGet(lista);
+    }
+
 
     @DeleteMapping("/{id}")
     @Transactional
