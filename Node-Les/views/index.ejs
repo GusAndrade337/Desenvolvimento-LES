@@ -1,0 +1,41 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Content Chamados</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+          <h1 class="site-title">Controlador De Chamados</h1>
+          <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/profile">Perfil</a>
+            <a href="/help">Ajuda</a>
+            <a href="/criarChamado">Criar Chamado</a>
+          </nav>
+        </div>
+      </header>
+  <div class="container">
+    <h1></h1>
+    <h1>Chamados</h1>
+    <div class="content-grid">
+      <% contentChamados.forEach(Chamado => { %>
+        <a class="content-box" href="/Chamado/<%= Chamado.id %>">
+          <h2><%= Chamado.titulo %></h2>
+          <p><%= Chamado.descricao %></p>
+        </a>
+      <% }); %>
+    </div>
+    
+    <!-- Pagination controls -->
+    <div class="pagination">
+      <span class="page-label">Page:</span>
+      <% for (let i = 0; i <= totalPages-1; i++) { %>
+        <a class="page-link" href="/?page=<%= i %>"><%= i %></a>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

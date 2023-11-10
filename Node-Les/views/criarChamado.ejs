@@ -1,0 +1,35 @@
+<!-- criarChamado.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Abrir um novo Chamado</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <!-- ... (header content) -->
+  </header>
+
+  <div class="container">
+    <form id="addChamadoForm">
+      <h2>Create a New Chamado</h2>
+      <label for="titulo">titulo:</label>
+      <input type="text" id="titulo" name="titulo" required>
+      
+      <label for="descricao">descricao:</label>
+      <input type="text" id="descricao" name="descricao" required>
+      
+      <label for="usuario">usuario:</label>
+      <input type="text" id="usuario" name="usuario" required>
+      
+      <label for="categoriaChamado">categoriaChamado:</label>
+      <input type="text" id="categoriaChamado" name="categoriaChamado" required>
+      
+
+      <button type="submit">Abrir Chamado</button>
+    </form>
+  </div>
+
+  <script src="/main.js"></script>
+</body>
+</html>
