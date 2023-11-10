@@ -27,7 +27,7 @@ body {
   }
   
   .content-box {
-    flex: 0 0 calc(25% - 20px); /* 4 boxes per row with a little spacing */
+    flex: 0 0 calc(25% - 20px);
     background-color: #fff;
     padding: 15px;
     margin: 10px 0;
@@ -48,9 +48,6 @@ body {
     margin: 10px 0;
   }
   
-  /* Add more styling rules as needed */
-  /* public/style.css */
-/* ... (previous CSS rules) */
 
 .site-header {
     background-color: #333;
@@ -75,5 +72,4 @@ body {
     font-weight: bold;
   }
   
-  /* Add more styling rules as needed */
   
